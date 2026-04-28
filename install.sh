@@ -4,9 +4,6 @@
 # Custom Minimal Hyprland Environment Setup Script for Fedora
 # ==============================================================================
 
-# Stop the script if any command fails
-set -e
-
 echo "Updating system..."
 sudo dnf upgrade -y
 
@@ -18,6 +15,7 @@ sudo dnf install -y https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-rel
 echo "Enabling third-party Copr repositories..."
 sudo dnf copr enable -y lionheartp/Hyprland
 sudo dnf copr enable -y scottames/ghostty
+sudo dnf copr enable -y lihaohong/yazi
 
 # 3. Install Core Packages & Dependencies
 echo "Installing core packages..."
@@ -52,7 +50,7 @@ sudo dnf install -y \
 
 # 4. Install Brave Browser (Nightly)
 echo "Installing Brave Nightly..."
-curl -fsS https://dl.brave.com/install.sh | CHANNEL=nightly sh
+curl -fsS https://dl.brave.com/install.sh | CHANNEL=nightly sudo sh
 
 # 5. Install Meslo LG Nerd Font
 echo "Installing Meslo LG Nerd Font..."
